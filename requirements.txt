@@ -1,0 +1,28 @@
+# MaterialRanger — Python dependencies
+# Python 3.11+ recommended (developed on 3.13)
+
+# --- Core (required) -------------------------------------------------
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+
+# --- Optional: live DFT ingestion + featurizers ----------------------
+# Needed only if you run the online data-pull cells (Materials Project,
+# OQMD, AFLOW, Alexandria, matminer). The pipeline also runs fully
+# offline from its curated dataset if these are absent.
+matminer
+pymatgen
+mp-api
+qmpy-rester
+requests
+
+# --- Optional: extra models ------------------------------------------
+xgboost
+umap-learn
+hdbscan
+
+# --- To run the notebook ---------------------------------------------
+jupyter
+ipykernel
