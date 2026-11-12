@@ -37,11 +37,11 @@ The full workflow lives in a single executed notebook: [`MaterialRanger_HKM_EXEC
 
 ---
 
-## Manuscript (draft for co-author review)
+## Paper
 
-[`manuscript/Sreenath_Hartmaier_manuscript_draft1_2026-10-20.pdf`](manuscript/Sreenath_Hartmaier_manuscript_draft1_2026-10-20.pdf)
+[`manuscript/Sreenath_Hartmaier_2026_BOF_refractories_microstructure.pdf`](manuscript/Sreenath_Hartmaier_2026_BOF_refractories_microstructure.pdf)
 
-**P. Sreenath, A. Hartmaier** (ICAMS, Ruhr-Universität Bochum): *From a data-driven materials ranking to microstructure: thermal-shock damage and creep of BOF refractory linings simulated with calibrated Kanapy RVEs, three-dimensional Abaqus models and machine-learning surrogates.* Draft 1, 20 October 2026, 20 pages.
+**P. Sreenath, A. Hartmaier** (ICAMS, Ruhr-Universität Bochum): *From a data-driven materials ranking to microstructure: thermal-shock damage and creep of BOF refractory linings simulated with calibrated Kanapy RVEs, three-dimensional Abaqus models and machine-learning surrogates.* Preprint, October 2026, 20 pages.
 
 The paper takes the MaterialRanger ranking in this repository a step further. The ranking shows that the choice between MgO–ZrO₂, magnesia and MgO–C depends on the weight given to thermal-shock damage (MgO–C ranks first only when that weight is at least 0.28). The paper then resolves this criterion with microstructure models:
 - periodic 2-D Kanapy RVEs (320 microstructures, Latin-hypercube DoE) with sequentially linear analysis for thermal shock and Gauss-point Norton creep;
@@ -50,8 +50,6 @@ The paper takes the MaterialRanger ranking in this repository a step further. Th
 - 3-D cohesive RVEs (13 645 interface elements) and a 3-D creep RVE of MgO–C;
 - brick-scale XFEM and contour-integral models;
 - descriptor- and image-based ML surrogates (Spearman 0.90–1.00 on the grade ranking).
-
-> **Status.** This draft is under review by the co-author. Keep this repository **private** until the paper is accepted. As the manuscript's data-availability statement says, the microstructures, simulation results, Abaqus input decks, extraction scripts and figure notebooks will be made public on publication.
 
 ---
 
@@ -98,7 +96,7 @@ Group-aware regression and classification (with SMAPE, ROC/PR-AUC, balanced accu
 MaterialRanger/
 ├── MaterialRanger_HKM_EXECUTED.ipynb   # the full pipeline (executed, figures inline)
 ├── manuscript/
-│   └── Sreenath_Hartmaier_manuscript_draft1_2026-10-20.pdf   # paper draft (co-author review)
+│   └── Sreenath_Hartmaier_2026_BOF_refractories_microstructure.pdf   # the paper (preprint)
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
@@ -150,4 +148,4 @@ Released under the [MIT License](LICENSE). If you'd prefer a different license (
 
 ## Acknowledgements
 
-Developed by Prajwal Sreenath at ICAMS (Interdisciplinary Centre for Advanced Materials Simulation), Ruhr-Universität Bochum. The data-driven ranking started in the course *Data-Driven Materials Science 2026* at ICAMS and was inspired by a visit to Hüttenwerke Krupp Mannesmann (HKM), Duisburg. The microstructure work in the manuscript was done with Prof. Alexander Hartmaier (ICAMS). Abaqus simulations were run on the CIP computing facilities of Ruhr-Universität Bochum.
+Developed by Prajwal Sreenath at ICAMS (Interdisciplinary Centre for Advanced Materials Simulation), Ruhr-Universität Bochum. The project was inspired by a visit to Hüttenwerke Krupp Mannesmann (HKM), Duisburg. The microstructure work in the manuscript was done with Prof. Alexander Hartmaier (ICAMS). Abaqus simulations were run on the CIP computing facilities of Ruhr-Universität Bochum.
