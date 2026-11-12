@@ -1,28 +1,33 @@
 # MaterialRanger — Python dependencies
-# Python 3.11+ recommended (developed on 3.13)
+# Python 3.11+ recommended
 
-# --- Core (required) -------------------------------------------------
+# --- Core (all notebooks) ---------------------------------------------
 numpy
 pandas
 scipy
 scikit-learn
 matplotlib
+joblib
+threadpoolctl
 
-# --- Optional: live DFT ingestion + featurizers ----------------------
-# Needed only if you run the online data-pull cells (Materials Project,
-# OQMD, AFLOW, Alexandria, matminer). The pipeline also runs fully
-# offline from its curated dataset if these are absent.
+# --- Steps 2 and 3: RVEs and surrogates --------------------------------
+kanapy==6.5.4      # ICAMS microstructure generator
+tensorflow         # ANN and U-Net CNN surrogates
+
+# --- Optional (step 1): live DFT ingestion + featurizers ---------------
+# Needed only for the online data-pull cells (Materials Project, OQMD,
+# AFLOW, Alexandria, matminer). Step 1 also runs offline.
 matminer
 pymatgen
 mp-api
 qmpy-rester
 requests
 
-# --- Optional: extra models ------------------------------------------
+# --- Optional (step 1): extra models -----------------------------------
 xgboost
 umap-learn
 hdbscan
 
-# --- To run the notebook ---------------------------------------------
+# --- To run the notebooks ----------------------------------------------
 jupyter
 ipykernel
