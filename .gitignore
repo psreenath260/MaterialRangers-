@@ -13,6 +13,35 @@ dft_cache.csv
 # results.json
 # materialranger_dataset.csv
 
+# --- Abaqus solver outputs (large; keep the .inp decks, not the results) ---
+*.odb
+*.dat
+*.msg
+*.sta
+*.prt
+*.res
+*.sim
+*.stt
+*.mdl
+*.lck
+*.com
+*.ipm
+*.abq
+*.pac
+*.sel
+*.023
+*.SMABulk
+
+# --- LaTeX build files ------------------------------------------------
+*.aux
+*.bbl
+*.blg
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+
 # --- Jupyter ----------------------------------------------------------
 .ipynb_checkpoints/
 */.ipynb_checkpoints/

@@ -37,6 +37,22 @@ The full workflow lives in a single executed notebook: [`MaterialRanger_HKM_EXEC
 
 ---
 
+## Paper
+
+[`manuscript/Sreenath_Hartmaier_2026_BOF_refractories_microstructure.pdf`](manuscript/Sreenath_Hartmaier_2026_BOF_refractories_microstructure.pdf)
+
+**P. Sreenath, A. Hartmaier** (ICAMS, Ruhr-Universität Bochum): *From a data-driven materials ranking to microstructure: thermal-shock damage and creep of BOF refractory linings simulated with calibrated Kanapy RVEs, three-dimensional Abaqus models and machine-learning surrogates.* Preprint, October 2026, 20 pages.
+
+The paper takes the MaterialRanger ranking in this repository a step further. The ranking shows that the choice between MgO–ZrO₂, magnesia and MgO–C depends on the weight given to thermal-shock damage (MgO–C ranks first only when that weight is at least 0.28). The paper then resolves this criterion with microstructure models:
+- periodic 2-D Kanapy RVEs (320 microstructures, Latin-hypercube DoE) with sequentially linear analysis for thermal shock and Gauss-point Norton creep;
+- five parameters calibrated on open brick data and validated on bricks not used in the calibration;
+- an independent Abaqus/Standard solution of 60 calibrated RVEs;
+- 3-D cohesive RVEs (13 645 interface elements) and a 3-D creep RVE of MgO–C;
+- brick-scale XFEM and contour-integral models;
+- descriptor- and image-based ML surrogates (Spearman 0.90–1.00 on the grade ranking).
+
+---
+
 ## Headline findings
 
 **Data-leakage-aware evaluation is the methodological core.** Every material contributes ~26 porosity/grade siblings, so a plain `KFold` split places near-duplicate rows (the same brick at P = 0.10 and P = 0.12) in train and test — inflating the score. The pipeline therefore separates two regimes explicitly: **`GroupKFold` / `GroupShuffleSplit`** (groups = material) gives the honest *extrapolation-to-unseen-chemistry* number, while the random split is reported only as the *interpolation / deployment* regime and labelled as such. `StratifiedGroupKFold` does the same for classification. This split discipline is what separates a believable figure of merit from an optimistic one.
@@ -79,6 +95,8 @@ Group-aware regression and classification (with SMAPE, ROC/PR-AUC, balanced accu
 ```
 MaterialRanger/
 ├── MaterialRanger_HKM_EXECUTED.ipynb   # the full pipeline (executed, figures inline)
+├── manuscript/
+│   └── Sreenath_Hartmaier_2026_BOF_refractories_microstructure.pdf   # the paper (preprint)
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
@@ -130,4 +148,4 @@ Released under the [MIT License](LICENSE). If you'd prefer a different license (
 
 ## Acknowledgements
 
-Developed as part of a Materials Informatics project at ICAMS (Interdisciplinary Centre for Advanced Materials Simulation), Ruhr-Universität Bochum, inspired by a visit to Hüttenwerke Krupp Mannesmann (HKM), Duisburg. *(Edit this section to add your name, supervisor, course details, and any links you'd like to include.)*
+Developed by Prajwal Sreenath at ICAMS (Interdisciplinary Centre for Advanced Materials Simulation), Ruhr-Universität Bochum. The project was inspired by a visit to Hüttenwerke Krupp Mannesmann (HKM), Duisburg. The microstructure work in the manuscript was done with Prof. Alexander Hartmaier (ICAMS). Abaqus simulations were run on the CIP computing facilities of Ruhr-Universität Bochum.
